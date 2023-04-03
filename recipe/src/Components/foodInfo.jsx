@@ -20,6 +20,7 @@ const FoodInfo = ({ id }) => {
         console.error(error);
       }
     };
+    console.log(id);
 
 
     getRecipe();
