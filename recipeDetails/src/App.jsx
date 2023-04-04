@@ -4,6 +4,7 @@ import FoodInfo from './Components/foodInfo';
 // import Plot from 'plotly.js-dist-min';
 // import Chart from 'chart.js/auto';
 import { Link } from "react-router-dom";
+import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 
 
@@ -12,6 +13,8 @@ function App() {
   const [searchTerm, setSearchTerm] = useState('');
   const [diet, setDiet] = useState('');
   const [cuisine, setCuisine] = useState('');
+  const [chartData, setChartData] = useState([]);
+
 
   
 
@@ -21,6 +24,13 @@ function App() {
         const response = await fetch(`https://api.edamam.com/api/recipes/v2?type=public&q=${searchTerm}&diet=${diet}&cuisineType=${cuisine}&app_id=a4a07192&app_key=6021841523f8ebb66f7253646351c79c`);
         const data = await response.json();
         setRecipes(data.hits);
+        const chartData = data.hits.map(recipe => {
+          return {
+            name: recipe.recipe.label,
+            time: recipe.recipe.totalTime? recipe.recipe.totalTime : null
+          };
+        });
+        setChartData(chartData);
       } catch (error) {
         console.error(error);
       }
@@ -53,6 +63,9 @@ function App() {
           );
           const json = await response.json();
           setRecipe(json);
+
+          
+  
         }
       } catch (error) {
         console.error(error);
@@ -69,7 +82,7 @@ function App() {
   return (
     <div className="App">
       <h3># of Dishes Displayed: {recipes?.length}</h3>
-      <h1>Food Finder</h1>
+      <h1>Recipe Finder</h1>
       <div>
         <label htmlFor="searchTerm">Search: </label>
         <input type="text" id="searchTerm" value={searchTerm} onChange={handleSearch} />
@@ -103,6 +116,22 @@ function App() {
           
         </select>
       </div>
+      <div>
+      <h4>Total Time (mins)</h4>
+      <h6>Some recipes do not have total time given</h6>
+
+      <BarChart width={800} height={300} data={chartData}>
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis dataKey="name" />
+        <YAxis />
+        <Tooltip />
+        <Legend />
+        <Bar dataKey="time" fill="#8884d8" />
+      </BarChart>
+
+      <h3>Recipes</h3>
+
+    </div>
       {recipes?.map((recipe) => (
         <div key={recipe.title}>
           <p></p>
