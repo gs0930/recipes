@@ -2,7 +2,7 @@
 
 Submitted by: **Emily S.**
 
-This web app: **Displays foods that matches certain conditions and also provides details about each food.**
+This web app: **Displays foods that matches certain conditions and also provides details about each food. Also provides a graph that displays the time taken for each recipe so that people who are short on time can easily search for recipes with lower times using it.**
 
 Time spent: **8** hours spent in total
 
@@ -10,7 +10,7 @@ Time spent: **8** hours spent in total
 
 The following **required** functionality is completed:
 
-- [] **The app includes at least two unique chart developed using the fetched data that tell an interesting story**
+- [x] **The app includes at least two unique chart developed using the fetched data that tell an interesting story**
 - [x] **Clicking on an item in the list view displays more details about it**
 - [x] **Clicking on an item has a direct, unique link to that item's detail view page**
 
@@ -29,7 +29,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-![](https://github.com/gs0930/recipes/blob/master/recipeDetails/p6.gif)
+![](https://github.com/gs0930/recipes/blob/master/recipeDetails/project6.gif)
 
 
 [ScreenToGif](https://www.screentogif.com/) for Windows
