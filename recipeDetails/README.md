@@ -29,7 +29,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-![](https://github.com/gs0930/recipes/blob/master/recipeDetails/project6.gif)
+![](https://github.com/gs0930/recipes/blob/master/recipeDetails/Project_6.gif)
 
 
 [ScreenToGif](https://www.screentogif.com/) for Windows
